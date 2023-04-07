@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<script> "use strict";
+
+localStorage.test = 2; 
+alert( localStorage.test );
+delete localStorage.test; 
+
+for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i); 
+    alert(`${key}: ${localStorage.getItem(key)}`);
+}
+
+sessionStorage.setItem('test', 1);
+alert( sessionStoarge.getItem('test') );
+
+window.onstorage = event => {
+    if (event.key != 'now') return; 
+    alert(event.key + ":" + event.newValue + "at" + event.url);
+};
+localStorage.setItem('now', Date.now());
+
+</script>
